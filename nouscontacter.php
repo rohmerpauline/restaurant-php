@@ -20,15 +20,15 @@
                     <h1 class="text-uppercase display-2 mb-5 text-center">Nous contacter</h1>
                     <div class="mb-3 col-10 col-md-8">
                         <label for="prenom_client" class="form-label">Prénom :</label>
-                        <input type="text" class="form-control" id="prenom_client" name="prenom_client" placeholder="Mauricette" required>
+                        <input type="text" class="form-control input-length" id="prenom_client" name="prenom_client" placeholder="Mauricette" required>
                     </div>
                     <div class="mb-3 col-10 col-md-8">
                         <label for="nom_client" class="form-label">Nom :</label>
-                        <input type="text" class="form-control" id="nom_client" name="nom_client" placeholder="Dupont" required>
+                        <input type="text" class="form-control input-length" id="nom_client" name="nom_client" placeholder="Dupont" required>
                     </div>               
                     <div class="mb-3 col-10 col-md-8">
                         <label for="email_client" class="form-label">E-mail :</label>
-                        <input type="email" class="form-control" id="email_client" name="email_client" aria-describedby="emailHelp" placeholder="mauricettedupont@example.com" required>
+                        <input type="email" class="form-control input-length" id="email_client" name="email_client" aria-describedby="emailHelp" placeholder="mauricettedupont@example.com" required>
                     </div>
                     <div class="mb-3 col-10 col-md-8">
                         <label for="objet_message" class="form-label">Objet de votre message :</label>
@@ -44,6 +44,9 @@
                     <div class="form-floating mb-2 col-10 col-md-8">
                         <textarea class="form-control" placeholder="Votre message" id="message_contenu" name="message_contenu" style="height: 100px" required></textarea>
                         <label class="ps-4" for="message">Votre message</label>
+                    </div>
+                    <div class="mb-3 col-10 col-md-8 text-end">
+                        <p><span id="count">0/1000</span></p>
                     </div>
                     <div class="mb-3 form-check col-10 col-md-8">
                         <input type="checkbox" class="form-check-input" id="confidentialite" required>
@@ -89,5 +92,6 @@
         <!--FOOTER-->
         <?php include 'footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="restaurant.js"></script>
     </body>
 </html>
