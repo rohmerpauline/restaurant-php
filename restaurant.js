@@ -1,8 +1,8 @@
-for (let i=0; i<=3; i++) { 
+/* for (let i=0; i<=3; i++) { 
 document.getElementsByClassName("input-length")[i].addEventListener("input", function() {
     document.getElementsByClassName("input-length")[i].maxLength = 50;
 });
-}
+} */
 
 // Compteur nombre de caractères textarea du formulaire
 document.getElementById("message_contenu").addEventListener("input", function(){
