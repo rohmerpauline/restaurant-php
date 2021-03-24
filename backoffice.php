@@ -25,7 +25,7 @@
             } catch(Exception $e) {
                     die('Erreur : '.$e->getMessage());
             };
-            // Lire les données de la db
+            // Lire les données de la table formulaire_contact
             $reponse = $bdd->query(
                 'SELECT id, date_message, prenom_client, nom_client, email_client, objet_message, message_contenu FROM formulaire_contact'
             );
@@ -39,11 +39,19 @@
                     <h1 class="text-uppercase display-2 mb-5 text-center" id="backoffice-title"></h1>
 
                     <!-- Liens pour naviguer parmi les onglets -->
-                    <div class="mb-5">
-                            <a href="#backoffice" class="btn btn-secondary d-inline mx-0" id="backoffice-tab" name="backoffice">Back-office</a>
-                            <a href="#guestbook" class="btn btn-secondary d-inline mx-0" id="guestbook-tab" name="guestbook">Guest-Book</a>
-                            <a href="#galerie" class="btn btn-secondary d-inline mx-0" id="galerie-tab" name="galerie">Galerie</a>
-                    </div>
+                    <nav>
+                        <div class="mb-5 nav nav-tabs" id="nav-tab" role="tablist">
+                                <a href="#backoffice" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="backoffice" name="backoffice" aria-selected="true">
+                                    Back-office
+                                </a>
+                                <a href="#guestbook" class="nav-item nav-link active" id="nav-guestbook-tab" data-toggle="tab" role="tab" aria-controls="guestbook" name="guestbook" aria-selected="true">
+                                    Guest-Book
+                                </a>
+                                <a href="#galerie" class="nav-item nav-link active" id="nav-galerie-tab" data-toggle="tab" role="tab" aria-controls="galerie" name="galerie" aria-selected="true">
+                                    Galerie
+                                </a>
+                        </div>
+                    </nav>
 
                     <!-- ********************* BACK-OFFICE TAB********************* -->
                     <div id="backoffice-data">
@@ -101,7 +109,7 @@
 
                     <!-- ********************* GALERIE TAB ********************* -->
                     <div id="galerie">
-                        <p>galerie</p>
+                        <p class="fs-5 fw-bold">Charger une image dans la galerie</p>
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="mb-3 col-10 col-md-8">
                                 <input type="file" name="fichierimage" value=""/>
@@ -121,10 +129,6 @@
                         <p class="fs-5 fw-bold text-center">Pas d'accès au Back-Office sur mobile, merci de vous reconnecter sur ordinateur !</p>
                     </div>
                 </main>
-
-        <!-- ********************* FOOTER ********************* -->
-        <?php include 'footer.php'; ?>
-
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script type="text/javascript" src="backoffice.js"></script>                        

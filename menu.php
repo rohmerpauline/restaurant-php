@@ -10,11 +10,11 @@
     </head>
 
     <body>
-<!--NAVBAR-->
-<?php include 'navbar.php'; ?>
+        <!--NAVBAR-->
+        <?php include 'navbar.php'; ?>
 
 
-<!--MAIN CONTENT-->
+        <!--MAIN CONTENT-->
         <main class="pt-5">
             <div class="container pt-5">
                 <div class="row justify-content-center text-center my-5">
@@ -119,6 +119,7 @@
 
         <!--FOOTER-->
         <?php include 'footer.php'; ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     </body>
 </html>

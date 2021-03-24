@@ -10,12 +10,14 @@
     </head>
 
     <body>
-<!--NAVBAR-->
-<?php include 'navbar.php'; ?>
+        <!--NAVBAR-->
+        <?php include 'navbar.php'; ?>
 
-<!--MAIN CONTENT--> 
+        <!--MAIN CONTENT--> 
         <main class="pt-5">
             <div class="container my-5 pt-5">
+
+                <!-- Formulaire de contacts --> 
                 <form class="row justify-content-center" method="post">
                     <h1 class="text-uppercase display-2 mb-5 text-center">Nous contacter</h1>
                     <div class="mb-3 col-10 col-md-8">
@@ -59,8 +61,9 @@
             </div>
         </main>
 
+        <!-- Envoi des données du formulaire dans base de données --> 
         <?php
-        // Connexion à la base de données
+            // Connexion à la base de données
             try
             {
                 $bdd = new PDO('mysql:host=localhost; dbname=restaurant_mauricette; charset=utf8', 'root', 'root');
@@ -69,29 +72,33 @@
             {
                     die('Erreur : '.$e->getMessage());
             }
-        
-        if (isset($_POST['envoyer'])){
-            // On stocke les input dans des variables
-            $prenom = $_POST['prenom_client'];
-            $nom = $_POST['nom_client'];
-            $email = $_POST['email_client'];
-            $objet = $_POST['objet_message'];
-            $message = $_POST['message_contenu'];
 
-            // On ajoute les entrées à la table formulaire_contact
-            $req = $bdd->prepare('INSERT INTO formulaire_contact(prenom_client, nom_client, email_client, objet_message, message_contenu) VALUES(:prenom_client, :nom_client, :email_client, :objet_message, :message_contenu)');
-            $req->execute(array(
-                'prenom_client'=> $prenom,
-                'nom_client'=> $nom,
-                'email_client'=> $email,
-                'objet_message'=> $objet,
-                'message_contenu'=> $message
-            ));
-        }
+            // Envoi des données du formulaire au clic du bouton Envoyer
+            if (isset($_POST['envoyer'])){
+                // On stocke les input dans des variables
+                $prenom = $_POST['prenom_client'];
+                $nom = $_POST['nom_client'];
+                $email = $_POST['email_client'];
+                $objet = $_POST['objet_message'];
+                $message = $_POST['message_contenu'];
+
+                // On ajoute les entrées à la table formulaire_contact
+                $req = $bdd->prepare('INSERT INTO formulaire_contact(prenom_client, nom_client, email_client, objet_message, message_contenu) VALUES(:prenom_client, :nom_client, :email_client, :objet_message, :message_contenu)');
+                $req->execute(array(
+                    'prenom_client'=> $prenom,
+                    'nom_client'=> $nom,
+                    'email_client'=> $email,
+                    'objet_message'=> $objet,
+                    'message_contenu'=> $message
+                ));
+            }
         ?>
+
         <!--FOOTER-->
         <?php include 'footer.php'; ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="restaurant.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="restaurant.js"></script>
+
     </body>
 </html>
